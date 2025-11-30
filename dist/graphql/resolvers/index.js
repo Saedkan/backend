@@ -152,7 +152,7 @@ export const resolvers = {
             })
         }
     },
-    // ✅ ДОБАВЛЯЕМ РЕЗОЛВЕРЫ ДЛЯ ТИПОВ
+    // ✅ РЕЗОЛВЕРЫ ДЛЯ ТИПОВ
     User: {
         projectsLed: () => [],
         projectsMember: () => [],
@@ -173,4 +173,8 @@ export const resolvers = {
         tasks: () => [],
         taskCount: () => 0,
     },
+    // ✅ ДОБАВЛЯЕМ РЕЗОЛВЕР ДЛЯ COMMENT (это было пропущено)
+    Comment: {
+    // Пустой объект, так как у Comment нет дополнительных полей для резолвинга
+    }
 };

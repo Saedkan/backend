@@ -1,6 +1,5 @@
 import { gql } from 'apollo-server-express';
-
-export const ultraMinimalTypeDefs = gql`
+export const ultraMinimalTypeDefs = gql `
   scalar DateTime
 
   type Query {

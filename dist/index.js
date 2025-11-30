@@ -2,8 +2,8 @@ import './config/env.js';
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 import { connectDB } from './config/database.js';
-import { unifiedTypeDefs } from './graphql/schema/unified.js';
-import { minimalResolvers } from './graphql/resolvers/minimal.js'; // Используем минимальные
+import { ultraMinimalTypeDefs } from './graphql/schema/ultra-minimal.js';
+import { ultraMinimalResolvers } from './graphql/resolvers/ultra-minimal.js';
 import { config } from './config/env.js';
 const startServer = async () => {
     console.log(`🚀 Starting TaskFlow Backend in ${config.NODE_ENV} mode...`);
@@ -18,8 +18,8 @@ const startServer = async () => {
         });
     });
     const server = new ApolloServer({
-        typeDefs: unifiedTypeDefs,
-        resolvers: minimalResolvers,
+        typeDefs: ultraMinimalTypeDefs,
+        resolvers: ultraMinimalResolvers,
         context: ({ req }) => {
             const token = req.headers.authorization || '';
             return {
