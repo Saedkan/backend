@@ -1,6 +1,5 @@
 import { DateTimeScalar } from '../scalars/DateTime.js';
 
-// Единые резолверы
 export const resolvers = {
   DateTime: DateTimeScalar,
   
@@ -60,13 +59,13 @@ export const resolvers = {
       }
     ],
     
-    // Добавим остальные Query из схемы
+    // Остальные Query
     searchUsers: () => [],
     user: () => null,
     project: () => null,
     myProjects: () => [],
     task: () => null,
-    myTasks: () => [],
+    myTasks: () => ({ tasks: [], pagination: { page: 1, limit: 10, total: 0, pages: 0 } }),
     overdueTasks: () => [],
     searchTasks: () => [],
     tags: () => [],
@@ -172,7 +171,7 @@ export const resolvers = {
     }
   },
   
-  // Резолверы для типов
+  // ✅ РЕЗОЛВЕРЫ ДЛЯ ТИПОВ
   User: {
     projectsLed: () => [],
     projectsMember: () => [],
@@ -195,5 +194,10 @@ export const resolvers = {
   Tag: {
     tasks: () => [],
     taskCount: () => 0,
+  },
+  
+  // ✅ ДОБАВЛЯЕМ РЕЗОЛВЕР ДЛЯ COMMENT (это было пропущено)
+  Comment: {
+    // Пустой объект, так как у Comment нет дополнительных полей для резолвинга
   }
 };
